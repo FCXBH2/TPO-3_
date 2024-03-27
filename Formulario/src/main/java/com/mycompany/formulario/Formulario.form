@@ -132,6 +132,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -280,7 +283,7 @@
                           <Component id="jButton6" min="-2" pref="492" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                           <Component id="jButton5" min="-2" pref="510" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -321,10 +324,10 @@
                       <Component id="jLabel3" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="jButton6" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="jButton6" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" pref="55" max="-2" attributes="0"/>
-                  <EmptySpace pref="218" max="32767" attributes="0"/>
+                  <Component id="jButton5" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace pref="245" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

@@ -4,17 +4,28 @@
  */
 package com.mycompany.formulario;
 
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DANIELALEJANDROMIRAN
  */
 public class Formulario extends javax.swing.JFrame {
-
+    HashMap<Cuenta,Usuario> Cuentas = new HashMap();
+    boolean Una_Vez=false;
     /**
      * Creates new form Formulario
      */
     public Formulario() {
         initComponents();
+        if(Una_Vez==false){
+            Cuenta cuentarda = new Cuenta(""+12345678,"alumno@ulp.edu.ar");
+            Usuario U1 = new Usuario("Daniel","Miranda","Danielmiranda@sanluis.edu.ar");
+            Cuentas.put(cuentarda, U1);
+            Una_Vez=true;
+        }
         if(jPanel1.isVisible()==true){
             jPanel2.setVisible(false);
         } else if (jPanel2.isVisible()==true){
@@ -68,6 +79,11 @@ public class Formulario extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Ingresar");
         jButton2.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -289,7 +305,7 @@ public class Formulario extends javax.swing.JFrame {
                         .addGap(146, 146, 146)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
+                        .addGap(137, 137, 137)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
@@ -319,10 +335,10 @@ public class Formulario extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -380,6 +396,17 @@ public class Formulario extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        Cuenta cuentita = new Cuenta(jPasswordField1.getText(),jTextField1.getText());
+        for (Map.Entry<Cuenta, Usuario> C1 : Cuentas.entrySet()) {
+            if(C1.getKey().equals(cuentita)){
+                JOptionPane.showInputDialog("Ingresando...");
+            } else {
+                JOptionPane.showInputDialog("No existe esa Cuenta.");
+            }
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
