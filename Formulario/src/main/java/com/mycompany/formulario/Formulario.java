@@ -400,7 +400,7 @@ public class Formulario extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Cuenta cuentita = new Cuenta(jPasswordField1.getText(),jTextField1.getText());
         for (Map.Entry<Cuenta, Usuario> C1 : Cuentas.entrySet()) {
-            if((cuentita.getPassword().equals(C1.getKey().getPassword()) && (cuentita.getGmail().equals(C1.getKey().getGmail())))){
+            if(((cuentita.getPassword().equals(C1.getKey().getPassword()))) && (cuentita.getGmail().equals(C1.getKey().getGmail()))){
                 JOptionPane.showInputDialog("Ingresando...");
                 
             } else {
@@ -413,7 +413,7 @@ public class Formulario extends javax.swing.JFrame {
         Usuario U2 = new Usuario(Nombre.getText(),Apellido.getText(),Gmail.getText());
         Cuenta Cuento = new Cuenta(Password.getText(),Gmail.getText());
         for (Map.Entry<Cuenta, Usuario> C1 : Cuentas.entrySet()) {
-            if((Cuento.getPassword().equals(C1.getKey().getPassword()) && (Cuento.getGmail().equals(C1.getKey().getGmail())))){
+            if(((Cuento.getPassword().equals(C1.getKey().getPassword()))) && (Cuento.getGmail().equals(C1.getKey().getGmail()))){
                 JOptionPane.showInputDialog("Esta cuenta ya Existe.");
             } else {
                 JOptionPane.showInputDialog("Cuenta Creada Exitosamente.");
