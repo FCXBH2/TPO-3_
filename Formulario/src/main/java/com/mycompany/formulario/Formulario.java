@@ -14,18 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class Formulario extends javax.swing.JFrame {
     HashMap<Cuenta,Usuario> Cuentas = new HashMap();
-    boolean Una_Vez=false;
+    boolean Una_Vez;
     /**
      * Creates new form Formulario
      */
     public Formulario() {
         initComponents();
-        if(Una_Vez==false){
-            Cuenta cuentarda = new Cuenta(""+12345678,"alumno@ulp.edu.ar");
-            Usuario U1 = new Usuario("Daniel","Miranda","Danielmiranda@sanluis.edu.ar");
-            Cuentas.put(cuentarda, U1);
-            Una_Vez=true;
-        }
+        
         if(jPanel1.isVisible()==true){
             jPanel2.setVisible(false);
         } else if (jPanel2.isVisible()==true){
@@ -56,18 +51,18 @@ public class Formulario extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Gmail = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        Nombre = new javax.swing.JTextField();
+        Apellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
+        Password = new javax.swing.JPasswordField();
+        Password2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(0, 0, 0));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -209,6 +204,11 @@ public class Formulario extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Crear Cuenta");
         jButton6.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,10 +216,10 @@ public class Formulario extends javax.swing.JFrame {
         jLabel3.setText("Gmail");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
 
-        jTextField2.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField2.setText("Gmail");
+        Gmail.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        Gmail.setForeground(new java.awt.Color(153, 153, 153));
+        Gmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Gmail.setText("Gmail");
 
         jLabel4.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,28 +227,28 @@ public class Formulario extends javax.swing.JFrame {
         jLabel4.setText("Nombre y Apellido");
         jLabel4.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jTextField3.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField3.setText("Nombre");
-        jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
+        Nombre.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        Nombre.setForeground(new java.awt.Color(153, 153, 153));
+        Nombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Nombre.setText("Nombre");
+        Nombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField3MouseClicked(evt);
+                NombreMouseClicked(evt);
             }
         });
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                NombreActionPerformed(evt);
             }
         });
 
-        jTextField4.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField4.setText("Apellido");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        Apellido.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        Apellido.setForeground(new java.awt.Color(153, 153, 153));
+        Apellido.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Apellido.setText("Apellido");
+        Apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                ApellidoActionPerformed(evt);
             }
         });
 
@@ -264,13 +264,13 @@ public class Formulario extends javax.swing.JFrame {
         jLabel6.setText("Password");
         jLabel6.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jPasswordField2.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jPasswordField2.setText("jPasswordField2");
+        Password.setForeground(new java.awt.Color(102, 102, 102));
+        Password.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Password.setText("jPasswordField2");
 
-        jPasswordField3.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jPasswordField3.setText("jPasswordField2");
+        Password2.setForeground(new java.awt.Color(102, 102, 102));
+        Password2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Password2.setText("jPasswordField2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -288,19 +288,19 @@ public class Formulario extends javax.swing.JFrame {
                                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Gmail, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Password2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -315,24 +315,24 @@ public class Formulario extends javax.swing.JFrame {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                        .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Password2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Gmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,22 +376,22 @@ public class Formulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_NombreActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void ApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_ApellidoActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         jPanel1.setVisible(true);
         jPanel2.setVisible(false);
     }//GEN-LAST:event_jButton5MouseClicked
 
-    private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
-        jTextField3.setText("");
-    }//GEN-LAST:event_jTextField3MouseClicked
+    private void NombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreMouseClicked
+        Nombre.setText("");
+    }//GEN-LAST:event_NombreMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -400,13 +400,29 @@ public class Formulario extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Cuenta cuentita = new Cuenta(jPasswordField1.getText(),jTextField1.getText());
         for (Map.Entry<Cuenta, Usuario> C1 : Cuentas.entrySet()) {
-            if(C1.getKey().equals(cuentita)){
+            if((cuentita.getPassword().equals(C1.getKey().getPassword()) && (cuentita.getGmail().equals(C1.getKey().getGmail())))){
                 JOptionPane.showInputDialog("Ingresando...");
+                
             } else {
                 JOptionPane.showInputDialog("No existe esa Cuenta.");
             }
         }
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        Usuario U2 = new Usuario(Nombre.getText(),Apellido.getText(),Gmail.getText());
+        Cuenta Cuento = new Cuenta(Password.getText(),Gmail.getText());
+        for (Map.Entry<Cuenta, Usuario> C1 : Cuentas.entrySet()) {
+            if((Cuento.getPassword().equals(C1.getKey().getPassword()) && (Cuento.getGmail().equals(C1.getKey().getGmail())))){
+                JOptionPane.showInputDialog("Esta cuenta ya Existe.");
+            } else {
+                JOptionPane.showInputDialog("Cuenta Creada Exitosamente.");
+                Cuentas.put(Cuento, U2);
+            }
+        }
+        jPanel2.setVisible(false);
+        jPanel1.setVisible(true);
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -444,6 +460,11 @@ public class Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Apellido;
+    private javax.swing.JTextField Gmail;
+    private javax.swing.JTextField Nombre;
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JPasswordField Password2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -459,12 +480,7 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
