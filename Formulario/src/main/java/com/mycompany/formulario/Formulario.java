@@ -267,6 +267,11 @@ public class Formulario extends javax.swing.JFrame {
         Password.setForeground(new java.awt.Color(102, 102, 102));
         Password.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         Password.setText("jPasswordField2");
+        Password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PasswordFocusGained(evt);
+            }
+        });
 
         Password2.setForeground(new java.awt.Color(102, 102, 102));
         Password2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -398,31 +403,48 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Cuenta cuentita = new Cuenta(jPasswordField1.getText(),jTextField1.getText());
-        for (Map.Entry<Cuenta, Usuario> C1 : Cuentas.entrySet()) {
-            if(((cuentita.getPassword().equals(C1.getKey().getPassword()))) && (cuentita.getGmail().equals(C1.getKey().getGmail()))){
-                JOptionPane.showInputDialog("Ingresando...");
+        
+        Cuenta Cuento = new Cuenta(jPasswordField1.getText(),jTextField1.getText());
+        
+            if(Cuentas.isEmpty()==false){
+                for(Map.Entry<Cuenta, Usuario> fito : Cuentas.entrySet()) {
+                if(fito.getKey().getPassword().equals(Cuento.getPassword())==true && fito.getKey().getGmail().equalsIgnoreCase(Cuento.getGmail())==true){
+                    JOptionPane.showMessageDialog(this, "Ingresando.");
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(this, "Gmail o contraseña incorrecta.");
+                    break;
+                }
+                }
+            } else if (Cuentas.isEmpty()==true){
+                JOptionPane.showMessageDialog(this, "Aun no hay Cuentas.");
                 
-            } else {
-                JOptionPane.showInputDialog("No existe esa Cuenta.");
             }
-        }
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         Usuario U2 = new Usuario(Nombre.getText(),Apellido.getText(),Gmail.getText());
         Cuenta Cuento = new Cuenta(Password.getText(),Gmail.getText());
-        for (Map.Entry<Cuenta, Usuario> C1 : Cuentas.entrySet()) {
-            if(((Cuento.getPassword().equals(C1.getKey().getPassword()))) && (Cuento.getGmail().equals(C1.getKey().getGmail()))){
-                JOptionPane.showInputDialog("Esta cuenta ya Existe.");
-            } else {
-                JOptionPane.showInputDialog("Cuenta Creada Exitosamente.");
-                Cuentas.put(Cuento, U2);
-            }
+        if(Cuentas.containsKey(Cuento)){
+            JOptionPane.showInputDialog("Cuenta Existente.");
+        } else if (!Cuentas.containsKey(Cuento)){
+            JOptionPane.showInputDialog("Cuenta Creada.");
+            Cuentas.put(Cuento, U2);
+            Nombre.setText("Nombre");
+            Apellido.setText("Apellido");
+            Gmail.setText("Gmail");
+            Password.setText("***************");
+            Password2.setText("***************");
+            jPanel2.setVisible(false);
+            jPanel1.setVisible(true);
         }
-        jPanel2.setVisible(false);
-        jPanel1.setVisible(true);
+        
+        
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void PasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFocusGained
+        Password.setText("");
+    }//GEN-LAST:event_PasswordFocusGained
 
     /**
      * @param args the command line arguments
@@ -458,7 +480,9 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
     }
-
+    public void IngresarACuenta(){
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Apellido;
     private javax.swing.JTextField Gmail;

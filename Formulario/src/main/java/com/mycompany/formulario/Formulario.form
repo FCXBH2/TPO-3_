@@ -510,6 +510,9 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="jPasswordField2"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="PasswordFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="Password2">
           <Properties>
