@@ -20,7 +20,7 @@ public class Formulario extends javax.swing.JFrame {
      */
     public Formulario() {
         initComponents();
-        
+        System.out.println(jRadioButton1);
         if(jPanel1.isVisible()==true){
             jPanel2.setVisible(false);
         } else if (jPanel2.isVisible()==true){
@@ -124,6 +124,11 @@ public class Formulario extends javax.swing.JFrame {
         jRadioButton1.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("¿Mostrar Contraseña?");
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -445,6 +450,10 @@ public class Formulario extends javax.swing.JFrame {
     private void PasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFocusGained
         Password.setText("");
     }//GEN-LAST:event_PasswordFocusGained
+
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+        
+    }//GEN-LAST:event_jRadioButton1MouseClicked
 
     /**
      * @param args the command line arguments
