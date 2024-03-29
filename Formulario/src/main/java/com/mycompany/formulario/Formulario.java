@@ -20,7 +20,7 @@ public class Formulario extends javax.swing.JFrame {
      */
     public Formulario() {
         initComponents();
-        System.out.println(jRadioButton1);
+       
         if(jPanel1.isVisible()==true){
             jPanel2.setVisible(false);
         } else if (jPanel2.isVisible()==true){
@@ -428,9 +428,16 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        boolean B1=false;
+        for(int i=0;i<Gmail.getText().length();i++){
+            if(Gmail.getText().substring(i, i+1).equals("@")){
+                B1=true;
+            }
+        }
         Usuario U2 = new Usuario(Nombre.getText(),Apellido.getText(),Gmail.getText());
         Cuenta Cuento = new Cuenta(Password.getText(),Gmail.getText());
-        if(Cuentas.containsKey(Cuento)){
+        if((Password2.getText().equals(Password.getText())==true) && (B1==true) ){
+            if(Cuentas.containsKey(Cuento)){
             JOptionPane.showInputDialog("Cuenta Existente.");
         } else if (!Cuentas.containsKey(Cuento)){
             JOptionPane.showInputDialog("Cuenta Creada.");
@@ -443,6 +450,15 @@ public class Formulario extends javax.swing.JFrame {
             jPanel2.setVisible(false);
             jPanel1.setVisible(true);
         }
+        } else {
+            if(Password2.getText().equals(Password.getText())==false){
+                JOptionPane.showMessageDialog(this, "Para confirmar la contraseña, deben ser iguales.");
+            }
+            if(B1==false){
+                JOptionPane.showMessageDialog(this, "Gmail no valido.");
+            }
+        }
+        
         
         
     }//GEN-LAST:event_jButton6MouseClicked
