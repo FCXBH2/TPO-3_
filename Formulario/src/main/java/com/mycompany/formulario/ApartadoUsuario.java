@@ -26,17 +26,52 @@ public class ApartadoUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        B = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        B.setBackground(new java.awt.Color(102, 119, 255));
+        B.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
+        B.setForeground(new java.awt.Color(255, 255, 255));
+        B.setText("Bienvenido, ");
+
+        jPanel1.setBackground(new java.awt.Color(102, 119, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(102, 119, 255));
+
+        jButton1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        jButton1.setText("Perfil");
+        jPanel2.add(jButton1);
+
+        jButton2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        jButton2.setText("Configuracion");
+        jPanel2.add(jButton2);
+
+        jButton3.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        jButton3.setText("Hades");
+        jPanel2.add(jButton3);
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(B, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(B, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE))
         );
 
         pack();
@@ -76,7 +111,16 @@ public class ApartadoUsuario extends javax.swing.JFrame {
             }
         });
     }
+    protected void InterfaceUsuario(Cuenta C, Usuario U){
+        B.setText(B.getText()+U.getNombre()+" "+U.getApellido());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

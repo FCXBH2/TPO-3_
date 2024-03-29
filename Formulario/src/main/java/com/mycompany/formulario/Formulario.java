@@ -460,7 +460,7 @@ public class Formulario extends javax.swing.JFrame {
                 for(Map.Entry<Cuenta, Usuario> fito : Cuentas.entrySet()) {
                 if(fito.getKey().getPassword().equals(Cuento.getPassword())==true && fito.getKey().getGmail().equalsIgnoreCase(Cuento.getGmail())==true){
                     JOptionPane.showMessageDialog(this, "Ingresando.");
-                    AU.isintheblood(fito.getKey(),fito.getValue());
+                    AU.InterfaceUsuario(fito.getKey(),fito.getValue());
                     AU.setVisible(true);
                     break;
                 } else {
