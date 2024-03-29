@@ -9,12 +9,12 @@ package com.mycompany.formulario;
  * @author DANIELALEJANDROMIRAN
  */
 public class ApartadoUsuario extends javax.swing.JFrame {
-    
     /**
      * Creates new form ApartadoUsuario
      */
     public ApartadoUsuario() {
         initComponents();
+        
     }
 
     /**
@@ -26,17 +26,25 @@ public class ApartadoUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Bienvenida = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        Bienvenida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Bienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Bienvenida.setText("Bienvenido, ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addComponent(Bienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 460, Short.MAX_VALUE))
         );
 
         pack();
@@ -76,7 +84,10 @@ public class ApartadoUsuario extends javax.swing.JFrame {
             }
         });
     }
-
+    public void isintheblood(Cuenta C, Usuario U){
+        Bienvenida.setText(Bienvenida.getText()+U.getNombre()+" "+U.getApellido());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bienvenida;
     // End of variables declaration//GEN-END:variables
 }

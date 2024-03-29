@@ -14,12 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class Formulario extends javax.swing.JFrame {
     HashMap<Cuenta,Usuario> Cuentas = new HashMap();
-    boolean Una_Vez;
+    ApartadoUsuario AU = new ApartadoUsuario();
+    
     /**
      * Creates new form Formulario
      */
     public Formulario() {
         initComponents();
+        AU.setVisible(false);
         jPanel3.setVisible(false);
         jPanel4.setVisible(false);
         if(jPanel1.isVisible()==true){
@@ -382,10 +384,11 @@ public class Formulario extends javax.swing.JFrame {
                     .addComponent(Password2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Gmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Gmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -457,6 +460,8 @@ public class Formulario extends javax.swing.JFrame {
                 for(Map.Entry<Cuenta, Usuario> fito : Cuentas.entrySet()) {
                 if(fito.getKey().getPassword().equals(Cuento.getPassword())==true && fito.getKey().getGmail().equalsIgnoreCase(Cuento.getGmail())==true){
                     JOptionPane.showMessageDialog(this, "Ingresando.");
+                    AU.isintheblood(fito.getKey(),fito.getValue());
+                    AU.setVisible(true);
                     break;
                 } else {
                     JOptionPane.showMessageDialog(this, "Gmail o contraseña incorrecta.");
