@@ -259,12 +259,12 @@
                                       <Component id="jLabel6" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="Password" min="-2" pref="317" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="Nombre" min="-2" pref="142" max="-2" attributes="0"/>
+                                          <Component id="Nombre" min="-2" pref="155" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Apellido" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="Apellido" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -330,7 +330,7 @@
                   <Component id="jButton6" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton5" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace pref="245" max="32767" attributes="0"/>
+                  <EmptySpace pref="244" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -360,9 +360,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#xbf;Ya tienes una Cuenta?"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                <MatteColorBorder/>
-              </Border>
+              <Border info="null"/>
             </Property>
           </Properties>
           <Events>
@@ -395,7 +393,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DialogInput" size="14" style="0"/>
+              <Font name="DialogInput" size="18" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -426,7 +424,7 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DialogInput" size="14" style="0"/>
+              <Font name="DialogInput" size="18" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -474,7 +472,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DialogInput" size="14" style="0"/>
+              <Font name="DialogInput" size="18" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -491,7 +489,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DialogInput" size="14" style="0"/>
+              <Font name="DialogInput" size="18" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>

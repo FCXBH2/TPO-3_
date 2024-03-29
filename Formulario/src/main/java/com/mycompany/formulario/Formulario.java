@@ -192,7 +192,7 @@ public class Formulario extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("¿Ya tienes una Cuenta?");
-        jButton5.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton5.setBorder(null);
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton5MouseClicked(evt);
@@ -215,7 +215,7 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Gmail");
@@ -226,7 +226,7 @@ public class Formulario extends javax.swing.JFrame {
         Gmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         Gmail.setText("Gmail");
 
-        jLabel4.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Nombre y Apellido");
@@ -257,13 +257,13 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Password");
         jLabel5.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel6.setFont(new java.awt.Font("DialogInput", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Password");
@@ -297,12 +297,12 @@ public class Formulario extends javax.swing.JFrame {
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(Apellido))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -348,7 +348,7 @@ public class Formulario extends javax.swing.JFrame {
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
