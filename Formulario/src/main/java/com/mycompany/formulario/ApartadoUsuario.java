@@ -35,6 +35,7 @@ public class ApartadoUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(102, 119, 255));
+        setResizable(false);
 
         B.setBackground(new java.awt.Color(102, 119, 255));
         B.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
