@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author DANIELALEJANDROMIRAN
  */
+//Nombre: Daniel Miranda Alejandro - DNI: 45800784.
 public class Formulario extends javax.swing.JFrame {
     HashMap<Cuenta,Usuario> Cuentas = new HashMap();
     ApartadoUsuario AU = new ApartadoUsuario();
